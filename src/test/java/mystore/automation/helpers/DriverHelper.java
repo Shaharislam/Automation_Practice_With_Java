@@ -12,8 +12,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static java.lang.Thread.sleep;
-
 public class DriverHelper {
     public static WebDriver driver;
     public static String BASE_URL = "http://automationpractice.com/index.php";
@@ -25,7 +23,7 @@ public class DriverHelper {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
+        options.setHeadless(true);
         options.addArguments("--disable-blink-features=AutomationControlled");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -34,13 +32,15 @@ public class DriverHelper {
 
     @AfterTest
     public void closeBrowser() {
-//        if (driver != null)
-//            driver.quit();
+        if (driver != null)
+            driver.quit();
     }
+
     public static void scrollDown() {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 800)");
         sleep(1);
     }
+
     public static void sleep(int seconds) {
         try {
             Thread.sleep(1000L * seconds);

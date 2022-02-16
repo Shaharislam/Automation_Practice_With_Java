@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import mystore.automation.helpers.DriverHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends DriverHelper {
@@ -14,10 +13,10 @@ public class HomePage extends DriverHelper {
     public String emailAddress = new Faker().internet().emailAddress();
     public String passwordText = "password@123456";
     public String companyText = new Faker().company().name();
-    String setOthersText=new Faker().lorem().characters(100);
-    String setPhoneNumber=new Faker().number().digits(10);
-    String setMobileNumber=new Faker().number().digits(10);
-    String aliseAddress=new Faker().lorem().characters(10);
+    String setOthersText = new Faker().lorem().characters(100);
+    String setPhoneNumber = new Faker().number().digits(10);
+    String setMobileNumber = new Faker().number().digits(10);
+    String aliseAddress = new Faker().lorem().characters(10);
 
 
     By signInLocator = By.className("login");
@@ -55,10 +54,10 @@ public class HomePage extends DriverHelper {
     By signOutBtn = By.xpath("//a[@title='Log me out']");
 
 
-
     public boolean getUserName() {
         return driver.findElement(userName).getText().equals(userNameText);
     }
+
     public void clickSubmitAccount() {
         driver.findElement(submitAccount).click();
     }
@@ -113,7 +112,7 @@ public class HomePage extends DriverHelper {
 
     public void setPhone(String phoneNumber) {
 
-      driver.findElement(phone).sendKeys(phoneNumber);
+        driver.findElement(phone).sendKeys(phoneNumber);
     }
 
     public void setPhoneMobile(String phone_mobile) {

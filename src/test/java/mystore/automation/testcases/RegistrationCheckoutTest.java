@@ -12,7 +12,7 @@ public class RegistrationCheckoutTest extends DriverHelper {
     String email = homePage.emailAddress;
     String password = homePage.passwordText;
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Create new Account")
     public void registrationTest() {
         homePage.clickLoginButton();
         homePage.setEmailAddress();
@@ -26,22 +26,17 @@ public class RegistrationCheckoutTest extends DriverHelper {
         System.out.println(password);
     }
 
-@Test(priority=2, description = "Login new account and purchase product")
-public void logInAccountTest() {
-    login.clickSignInBtn();
-    login.fillUserCredential("pablo.roob@hotmail.com","password@123456");
-    login.clickSubmitBtn();
-    login.clickCausalDress();
-    login.addToCart();
-    // Assert Your order on My Store is complete.
-   // login.clickSignOutBtn();
+    @Test(priority = 2, description = "Login new account and purchase product")
+    public void logInAccountTest() {
+        login.clickSignInBtn();
+        login.fillUserCredential("pablo.roob@hotmail.com", "password@123456");
+        login.clickSubmitBtn();
+        login.clickCausalDress();
+        login.addToCartAndProceedCheckout();
+        Assert.assertEquals(login.successMessageDisplayed(), "Your order on My Store is complete.");
+        login.clickSignOutBtn();
+        Assert.assertEquals(driver.getTitle(), "Login - My Store");
 
-
-
-}
-    @Test(priority = 3)
-    public void addProductCurtTest() {
-        System.out.println(email);
-        System.out.println(password);
     }
+
 }
