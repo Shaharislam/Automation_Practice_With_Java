@@ -19,11 +19,15 @@ public class HomePage extends DriverHelper {
     String setMobileNumber=new Faker().number().digits(10);
     String aliseAddress=new Faker().lorem().characters(10);
 
+
     By signInLocator = By.className("login");
     By emailLocator = By.id("email_create");
     By submitLocator = By.id("SubmitCreate");
-    By firstName = By.id("customer_firstname");
-    By lastName = By.id("customer_lastname");
+    By cFirstName = By.id("customer_firstname");
+    By cLastName = By.id("customer_lastname");
+    By firstName = By.id("firstname");
+    By lastName = By.id("lastname");
+
     By password = By.id("passwd");
     By daysOptionLocator = By.id("uniform-days");
     By daysLocator = By.id("days");
@@ -48,13 +52,15 @@ public class HomePage extends DriverHelper {
     By phone = By.id("phone");
     By countryName = By.id("id_country");
     By genderMale = By.id("uniform-id_gender1");
+    By signOutBtn = By.xpath("//a[@title='Log me out']");
+
 
 
     public boolean getUserName() {
         return driver.findElement(userName).getText().equals(userNameText);
     }
     public void clickSubmitAccount() {
-        driver.findElement(submitAccount).submit();
+        driver.findElement(submitAccount).click();
     }
 
     public void clickLoginButton() {
@@ -162,10 +168,14 @@ public class HomePage extends DriverHelper {
         select.selectByValue(text);
     }
 
+    public void clickSignOutBtn() {
+        driver.findElement(signOutBtn).click();
+    }
+
     public void fillPersonalInformation() {
         driver.findElement(genderMale).click();
-        driver.findElement(firstName).sendKeys(firstNameText);
-        driver.findElement(lastName).sendKeys(lastNameText);
+        driver.findElement(cFirstName).sendKeys(firstNameText);
+        driver.findElement(cLastName).sendKeys(lastNameText);
         driver.findElement(password).sendKeys(passwordText);
 
         selectDays("1");
