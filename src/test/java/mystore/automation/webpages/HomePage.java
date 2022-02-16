@@ -33,7 +33,7 @@ public class HomePage extends DriverHelper {
     By yearLocator = By.id("years");
     By submitAccount = By.id("submitAccount");
     By userName = By.xpath("//a[@title='View my customer account']");
-    By alise = By.id("alias");
+    By alias = By.id("alias");
     By phoneMobile = By.id("phone_mobile");
     By newsLetterCheckBox = By.id("newsletter");
     By specialCheckBox = By.id("optin");
@@ -47,6 +47,8 @@ public class HomePage extends DriverHelper {
     By otherText = By.id("other");
     By phone = By.id("phone");
     By countryName = By.id("id_country");
+    By genderMale = By.id("uniform-id_gender1");
+
 
     public boolean getUserName() {
         return driver.findElement(userName).getText().equals(userNameText);
@@ -115,7 +117,7 @@ public class HomePage extends DriverHelper {
 
     public void setAlias(String alias_text) {
 
-        driver.findElement(alise).sendKeys(alias_text);
+        driver.findElement(alias).sendKeys(alias_text);
     }
 
     public void selectDays(String day) {
@@ -161,7 +163,7 @@ public class HomePage extends DriverHelper {
     }
 
     public void fillPersonalInformation() {
-        driver.findElement(By.id("uniform-id_gender1")).click();
+        driver.findElement(genderMale).click();
         driver.findElement(firstName).sendKeys(firstNameText);
         driver.findElement(lastName).sendKeys(lastNameText);
         driver.findElement(password).sendKeys(passwordText);
