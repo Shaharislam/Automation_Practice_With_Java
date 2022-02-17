@@ -50,7 +50,9 @@ public class LoginPage extends DriverHelper {
         driver.findElement(processToCheckOut).click();
         scrollDown();
         driver.findElement(processedToCheckOut_summery).click();
+        scrollDown();
         driver.findElement(processedToCheckOut_address).click();
+        scrollDown();
         driver.findElement(termsAndService).click();
         driver.findElement(processToCheckOut_shipping).click();
         driver.findElement(paymentCheck).click();

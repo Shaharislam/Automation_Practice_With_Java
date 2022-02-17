@@ -6,7 +6,8 @@
             <class name="mystore.automation.testcases.RegistrationCheckoutTest">
                 <methods>
                     <include name="registrationTest"/>
-                    <include name="addProductCartTest"/>
+                    <include name="purchaseProductWithFirstUser"/>
+                    <include name="purchaseProductWithSecondUser"/>
                 </methods>
             </class>
         </classes>

@@ -3,15 +3,12 @@ package mystore.automation.webpages;
 import com.github.javafaker.Faker;
 import mystore.automation.helpers.DriverHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends DriverHelper {
     public String firstNameText = new Faker().name().firstName();
     public String lastNameText = new Faker().name().lastName();
     public String userNameText = firstNameText + " " + lastNameText;
-    public String emailAddress = new Faker().internet().emailAddress();
-    public String passwordText = "password@123456";
     public String companyText = new Faker().company().name();
     String setOthersText = new Faker().lorem().characters(100);
     String setPhoneNumber = new Faker().number().digits(10);
@@ -53,7 +50,6 @@ public class HomePage extends DriverHelper {
     By genderMale = By.id("uniform-id_gender1");
     By signOutBtn = By.xpath("//a[@title='Log me out']");
 
-
     public boolean getUserName() {
         return driver.findElement(userName).getText().equals(userNameText);
     }
@@ -66,8 +62,8 @@ public class HomePage extends DriverHelper {
         driver.findElement(signInLocator).click();
     }
 
-    public void setEmailAddress() {
-        driver.findElement(emailLocator).sendKeys(emailAddress);
+    public void setEmailAddress(String email) {
+        driver.findElement(emailLocator).sendKeys(email);
     }
 
     public void clickSubmitButton() {
@@ -75,22 +71,18 @@ public class HomePage extends DriverHelper {
     }
 
     public void setCompany(String companyName) {
-
         driver.findElement(company).sendKeys(companyName);
     }
 
     public void setAddress1(String addrs1) {
-
         driver.findElement(address1).sendKeys(addrs1);
     }
 
     public void setAddress2(String addrs1) {
-
         driver.findElement(address2).sendKeys(addrs1);
     }
 
     public void setCity(String cityName) {
-
         driver.findElement(city).sendKeys(cityName);
     }
 
@@ -101,27 +93,22 @@ public class HomePage extends DriverHelper {
     }
 
     public void setPostCode(String code) {
-
         driver.findElement(postCode).sendKeys(code);
     }
 
     public void setCountryName(String id_country) {
-
         driver.findElement(countryName).sendKeys(id_country);
     }
 
     public void setPhone(String phoneNumber) {
-
         driver.findElement(phone).sendKeys(phoneNumber);
     }
 
     public void setPhoneMobile(String phone_mobile) {
-
         driver.findElement(phoneMobile).sendKeys(phone_mobile);
     }
 
     public void setAlias(String alias_text) {
-
         driver.findElement(alias).sendKeys(alias_text);
     }
 
@@ -138,44 +125,32 @@ public class HomePage extends DriverHelper {
     }
 
     public void selectYears(String year) {
-        driver.findElement(yearLocator).click();
-        selectByValue(driver.findElement(yearLocator), year);
+        driver.findElement(yearOptionsLocator).click();
+        Select select = new Select(driver.findElement(yearLocator));
+        select.selectByValue(year);
     }
 
     public void clickNewsLetter() {
-
         driver.findElement(newsLetterCheckBox).click();
     }
 
     public void clickSpecialOffers() {
-
         driver.findElement(specialCheckBox).click();
     }
 
     public void setOtherText(String text) {
-
         driver.findElement(otherText).sendKeys(text);
-    }
-
-    protected void selectByVisibleText(WebElement element, String text) {
-        Select select = new Select(element);
-        select.selectByVisibleText(text);
-    }
-
-    protected void selectByValue(WebElement element, String text) {
-        Select select = new Select(element);
-        select.selectByValue(text);
     }
 
     public void clickSignOutBtn() {
         driver.findElement(signOutBtn).click();
     }
 
-    public void fillPersonalInformation() {
+    public void fillPersonalInformation(String Pass) {
         driver.findElement(genderMale).click();
         driver.findElement(cFirstName).sendKeys(firstNameText);
         driver.findElement(cLastName).sendKeys(lastNameText);
-        driver.findElement(password).sendKeys(passwordText);
+        driver.findElement(password).sendKeys(Pass);
 
         selectDays("1");
         selectMonths("1");
@@ -198,6 +173,5 @@ public class HomePage extends DriverHelper {
         setPhone(setPhoneNumber);
         setPhoneMobile(setMobileNumber);
         setAlias(aliseAddress);
-
     }
 }
