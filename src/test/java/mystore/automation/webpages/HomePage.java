@@ -15,7 +15,6 @@ public class HomePage extends DriverHelper {
     String setMobileNumber = new Faker().number().digits(10);
     String aliseAddress = new Faker().lorem().characters(10);
 
-
     By signInLocator = By.className("login");
     By emailLocator = By.id("email_create");
     By submitLocator = By.id("SubmitCreate");
@@ -23,7 +22,6 @@ public class HomePage extends DriverHelper {
     By cLastName = By.id("customer_lastname");
     By firstName = By.id("firstname");
     By lastName = By.id("lastname");
-
     By password = By.id("passwd");
     By daysOptionLocator = By.id("uniform-days");
     By daysLocator = By.id("days");

@@ -29,7 +29,6 @@ public class LoginPage extends DriverHelper {
     By tShirts = By.xpath("//a[@title='T-shirts']");
     By blueColorFilter = By.xpath("//input[@id='layered_id_attribute_group_14']");
 
-
     public void addToCartAndProceedCheckout() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(imageHover)).build().perform();
@@ -79,22 +78,18 @@ public class LoginPage extends DriverHelper {
 
     void setEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
-
     }
 
     void setPassword(String pass) {
         driver.findElement(passwordField).sendKeys(pass);
-
     }
 
     public void clickSubmitBtn() {
         driver.findElement(submitBtn).click();
-
     }
 
     public void fillUserCredential(String email, String pass) {
         setEmail(email);
         setPassword(pass);
     }
-
 }
