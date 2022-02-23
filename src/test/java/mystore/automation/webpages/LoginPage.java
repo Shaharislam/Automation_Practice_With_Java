@@ -35,8 +35,7 @@ public class LoginPage extends DriverHelper {
         driver.findElement(addToCartClick).click();
         driver.findElement(continueShopping).click();
         List<WebElement> findElements = driver.findElements(tShirts);
-        for (int i = 0; i < findElements.size(); i++) {
-            WebElement elm = findElements.get(i);
+        for (WebElement elm : findElements) {
             if (elm.isDisplayed()) {
                 elm.click();
                 break;

@@ -9,8 +9,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.time.Duration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DriverHelper {
     public static WebDriver driver;
@@ -18,16 +16,9 @@ public class DriverHelper {
 
     @BeforeTest
     public void openBrowser() {
-        Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "/drivers/chromedriver.exe");
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        options.addArguments("--disable-blink-features=AutomationControlled");
-
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.get(BASE_URL);
     }

@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends DriverHelper {
-    public String firstNameText = new Faker().name().firstName();
-    public String lastNameText = new Faker().name().lastName();
-    public String userNameText = firstNameText + " " + lastNameText;
-    public String companyText = new Faker().company().name();
+    String firstNameText = new Faker().name().firstName();
+    String lastNameText = new Faker().name().lastName();
+    String userNameText = firstNameText + " " + lastNameText;
+    String companyText = new Faker().company().name();
     String setOthersText = new Faker().lorem().characters(100);
     String setPhoneNumber = new Faker().number().digits(10);
     String setMobileNumber = new Faker().number().digits(10);
