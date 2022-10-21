@@ -1,4 +1,4 @@
-# Automation Task BS-23
+# Selenium_Automation
 
 ### How to run tests
 
