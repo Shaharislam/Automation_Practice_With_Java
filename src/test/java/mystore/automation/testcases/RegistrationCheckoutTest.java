@@ -21,16 +21,16 @@ public class RegistrationCheckoutTest extends DriverHelper {
     HomePage homePage = new HomePage();
     LoginPage login = new LoginPage();
     PurchaseProduct purchase = new PurchaseProduct();
-    CsvFileTest printData=new CsvFileTest();
-    DataStore useData=new DataStore();
+    // CsvFileTest printData=new CsvFileTest();
+    // DataStore useData=new DataStore();
 
-//    @DataProvider(name = "register-data")
-//    public Object[][] userData() {
-//        return new Object[][]{
-//                {emailFirstUser, passwordFirstUser},
-//                {emailSecondUser, passwordSecondUser}
-//        };
-//    }
+   @DataProvider(name = "register-data")
+   public Object[][] userData() {
+       return new Object[][]{
+               {emailFirstUser, passwordFirstUser},
+               {emailSecondUser, passwordSecondUser}
+       };
+   }
 
     @Test(priority = 1, description = "Create new Account", dataProvider = "register-data")
     public void registrationTest(String email, String password) {
@@ -70,7 +70,7 @@ public class RegistrationCheckoutTest extends DriverHelper {
 
     @Test(priority = 4, description = "Csv File Read and Print Data", dataProvider = "register-data")
     public void CsvDataPrint(String email, String password) throws CsvValidationException, IOException {
-        printData.CsvFileReadMethod();
+       // printData.CsvFileReadMethod();
 //        homePage.clickLoginButton();
 //        homePage.setEmailAddress(email);
 //        homePage.clickSubmitButton();
@@ -97,7 +97,7 @@ public class RegistrationCheckoutTest extends DriverHelper {
     @DataProvider(name = "testUserData", parallel = false)
     public Object[][] getData() {
         String use_csv ="src/test/ExcelSheet/userlist.csv";
-        return useData.receiveCsvData(use_csv);
+        ///return useData.receiveCsvData(use_csv);
     }
 
     @Test(testName = "Search on Google with single browser.", dataProvider = "testUserData")

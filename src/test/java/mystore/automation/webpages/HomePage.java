@@ -1,16 +1,11 @@
 package mystore.automation.webpages;
 
-import com.github.javafaker.Faker;
-import mystore.automation.helpers.DriverHelper;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
+import com.github.javafaker.Faker;
+
+import mystore.automation.helpers.DriverHelper;
 
 public class HomePage extends DriverHelper {
     String firstNameText = new Faker().name().firstName();
@@ -142,6 +137,7 @@ public class HomePage extends DriverHelper {
     public void clickSpecialOffers() {
         driver.findElement(specialCheckBox).click();
     }
+
 
     public void setOtherText(String text) {
         driver.findElement(otherText).sendKeys(text);
